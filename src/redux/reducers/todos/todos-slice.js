@@ -32,7 +32,7 @@ export default function todosReducer(state = initialState, action) {
     }
     case "todos/todoToggled": {
       return state.map((todo) => {
-        if (todo.id !== action.payload) {
+        if (todo.id !== action.payload.id) {
           return todo;
         }
 

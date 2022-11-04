@@ -10,11 +10,24 @@ export default function ToDoList() {
     });
   };
 
+  const handleToggle = (todo) => {
+    dispatch({
+      type: "todos/todoToggled",
+      payload: todo,
+    });
+  };
+
   return (
     <ul>
       {todos.map((todo) => (
         <li key={todo.id}>
-          {todo.text} <button onClick={() => handleRemove(todo)}>remove</button>
+          <p
+            style={{ cursor: "pointer" }}
+            onClick={() => handleToggle(todo)}
+            className={todo.completed ? "completed" : ""}
+          >
+            {todo.text} <button onClick={() => handleRemove(todo)}>Remove</button>
+          </p>
         </li>
       ))}
     </ul>
